@@ -1,6 +1,7 @@
 import sys
 import ctypes
 import time
+from pathlib import Path
 import pyautogui
 import cv2
 import numpy as np
@@ -10,9 +11,10 @@ import keyboard
 # =====================================================================
 #                          БЛОК НАСТРОЕК (КОНФИГ)
 # =====================================================================
+BASE_DIR = Path(__file__).resolve().parent.parent
+
 CONFIG = {
-    "model_path": "runs/detect/cookie_detector-6/weights/best.pt",
-    
+    "model_path":  str(BASE_DIR / "runs" / "detect" / "cookie_detector-6" / "weights" / "best.pt"),
     # Настройки уверенности
     "conf_default": 0.35,     
     "conf_close_ad": 0.50,    
